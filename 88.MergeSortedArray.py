@@ -1,6 +1,7 @@
 '''
-Approach: Three Pointers (Backward Merge)
-We fill nums1 starting from the end to avoid using extra space and prevent overwriting elements in nums1 that haven't been compared yet.
+Approach: 
+We will use a three pointers approach. We fill nums1 starting from the end to avoid using extra space and prevent overwriting elements in nums1 that haven't been compared 
+yet.
 
 Visual Trace: 
 nums1 = [1, 2, 3, 0, 0, 0], m = 3
