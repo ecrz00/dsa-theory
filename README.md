@@ -13,7 +13,6 @@ The following channels have been a huge guidance during this learning journey. A
 * [NeetCode](https://www.youtube.com/@NeetCode)
 
 Each file has a consistent structure for easy review. The files' header includes:
-* Problem overview with examples (same as LeetCode's description).
 * Description of the approach used.
   * Some problems have more than one solution, thus address the follow-ups (such as space complexity constraints)
 * Time Complexity and Space Complexity
