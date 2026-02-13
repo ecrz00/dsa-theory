@@ -62,7 +62,7 @@ E --> J((10))
 G --> K((11))
 K --> L((12))
 
-style A fill: #3c8DE8, color: #ffffff
+style A fill:#3c8DE8, color:#ffffff
 ```
 <p align="center"><i>Figure 1: Representation of a Tree.</i></p>
 
@@ -96,9 +96,9 @@ A subclass of trees is called a **Binary Tree** (for the sake of simplicy, it wi
 
 ```mermaid
 graph TD
-classDef full fill: #B882FA, color: #ffffff
-classDef complete fill: #3D4DEB, color: #ffffff
-classDef perfect fill: #82E2FA, color: #000000
+classDef full fill:#B882FA,color:#ffffff
+classDef complete fill:#3D4DEB,color:#ffffff
+classDef perfect fill:#82E2FA,color:#000000
 A((A)) --> B((B))
 A --> C((C))
 
@@ -127,7 +127,7 @@ C --> G((9))
 ```
 
 Some properties can be computed mathematically (these apply only when the root is considered level 0):
-* Maximum numbers of nodes at level *i* is given by $2^{i}$
-* The height *h* of a BT can be calculated based on the number of nodes *n* $ h = \log_2(n+1)-1 $
-* The maximum number of nodes in a perfect tree with heigth *h* is given by $ max_{nodes} = 2^{h+1}-1 \quad\quad \text{or} \quad\quad max_{nodes} = 2^{\text{\# of levels}}-1$
+* Maximum numbers of nodes at level *i* is given by $ 2^{i} $
+* The height *h* of a BT can be calculated based on the number of nodes *n* $$ h = \log_2(n+1)-1 $$
+* The maximum number of nodes in a perfect tree with heigth *h* is given by $$ \text{max}_{\text{nodes}} = 2^{h+1}-1 \quad \text{or} \quad \text{max}_{\text{nodes}} = 2^{\text{\# of levels}}-1 $$
 </details>
