@@ -97,7 +97,7 @@ C --> G((9))
 Some properties can be computed mathematically (these apply only when the root is considered level 0):
 * Maximum numbers of nodes at level *i* is given by 
     $2^{i}$
-* The height *h* of a BT can be calculated based on the number of nodes *n* 
+* The height *h* of a BT can be calculated based on the number of nodes $n$: 
     $$h = \log_{2}(n+1)-1$$
 * The maximum number of nodes in a perfect tree with heigth *h* is given by 
-    $$\text{max}_{\text{nodes}} = 2^{h+1}-1 \quad \text{or} \quad \text{max}_{\text{nodes}} = 2^{\text{\# of levels}}-1$$
+    $$max_{nodes} = 2^{h+1}-1 \quad \text{or} \quad max_{nodes} = 2^{\text{\# of levels}}-1$$
