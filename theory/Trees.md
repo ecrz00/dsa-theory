@@ -137,7 +137,9 @@ class TreeNode:
 
 These techniques are used to visit and **process** the nodes. 
 **Note**: For this section, *process* is a generic term that can mean to print, edit or perform any operation on a node.
+
 ## Depth-First Search
+
 As the name suggests, DFS prioritizes depth. Starting at the root, this technique tipically visit the left subtree before the right subtree. 
 
 ![DFS](../assets/trees/dfs.gif)
@@ -146,9 +148,66 @@ As the name suggests, DFS prioritizes depth. Starting at the root, this techniqu
 DFS can be implemented either with stack or recursion.
 
 ### Iterative DFS using stack
+This implementations takes advantage of several key properties of the **Stack**:
+* **LIFO (Last-In, First-Out)**: This property forces the traversal to reach the deepest node before exploring neighbors at the same level.
+* **Efficiency**: Both pushing and popping from the stack are performed in constant time, **O(1)**
+The process begins by pushing the root onto the stack. The remainder of the algorithm consists of a loop in which the folowing operations are performed:
+1. A pop operation is executed, and the resulting node is processed. 
+2. If the node has a right child, it is pushed onto the stack. 
+3. If the node has a left child, it is pushed onto the stack.
+
+```python
+def iterativeDFS(TreeNode: root) -> list[int]:
+    stk = [root]
+    res = []
+    while stk: #while stk is not empty
+        node = stk.pop()
+        res.append(node.val)
+        if node.right: stk.append(node.right)
+        if node.left: stk.append(node.left)
+    return res
+
+'''
+stk = [(F)] 
+node = (F), it is processed
+stk = [(J), (D)]
+node = (D), it is processed
+stk = [(J), (E), (B)]
+node = (B), it is processed
+stk = [(J), (E), (C), (A)]
+node = (A), it is processed
+node = (C), it is processed
+node = (E), it is processed
+node = (J), it is processed
+stk = [(K), (G)]
+node = (G), it is processed
+stk = [(K), (I)]
+node = (I), it is processed
+stk = [(K), (H)]
+node = (H), it is processed
+node = (K), it is processed
+res = [F, D, B, A, C, E, J, G, I , H, K]
+'''
+```
 
 ### DFS using recursion
+This implementations leverages the power of recursion to navigate the tree structure:
+* **Recursive calls**: The algorithm calls itself until a leaf node is reached.
+* **Backtracking**: Once the left subtree has been fully processed, the function returns to the parent node to begin traversing the right subtree.
 
+```python
+def solution(root: TreeNode): -> list[int]
+    res = [] 
+    def dfs(node: TreeNode):
+        if not node:
+            return
+        res.append(node.val)
+        dfs(node.left)
+        dfs(node.right)
+    dfs(root)
+    return res
+#res = [F, D, B, A, C, E, J, G, I , H, K]
+```
 
 There are three different orders of processing:
 * **Pre-order** *(Process myself -> Visit left -> Visit right)*: The current node is processed first. Then, the left subtree is visited, followed by the right subtree. 
@@ -181,6 +240,42 @@ There are three different orders of processing:
         postOrder(node.right)
         print(node) 
     ```
+Complexity analysis is a vital part of understanding these algorithms. For a DFS, whether implemented recursively or iteratively:
+* Time Complexity is **O(n)** because each node is visited exactly once. Regardless of whether the stack is managed manually or through the call stack, the pop and push operations are performed in constant time, **O(1)**.
+* Space Complexity is **O(n)** in the worst case. On average space complexity is **O(h)** as the stack only needs to store at most *h* nodes or functions calls simultaneously, where *h* is the height of the tree. In worts scenario, *h* = *n*.  
 
+## Breadth-Fisrt Search 
+As the name suggests, BFS prioritizes breadth. Starting at the root node, all nodes at a given level are visited before moving to the next. Once the travelsal of L-0 is finished, L-1 is visited, followed by level 2, and so on.   
 
+![DFS](../assets/trees/bfs.gif)
+<p align="center"><i>Figure 5: BFS traversal on a Binary Tree. Orange indicates the node currently being visited.</i></p>
 
+A BFS algorithm takes advantage of several key properties of the **Queue**:
+* **FIFO (First-In, First-Out)**: This property forces to explore in a level order traversal.
+* **Efficiency**: Both pushing and popping from the queue are performed in constant time, **O(1)**
+The process begins by pushing the root onto the queue. The remainder of the algorithm consists of a loop in which the folowing operations are performed:
+1. A pop operation is executed, and the resulting node is processed. 
+2. If the node has a left child, it is pushed onto the stack. 
+3. If the node has a right child, it is pushed onto the stack.
+```python
+from collections import deque
+def BFS(node: TreeNode):
+    q = deque()
+    q.append(node)
+    while q:
+        node = q.popleft()
+        print(node)
+        if node.left: q.append(node.left)
+        if node.right: q.append(node.right)
+```
+Complexity analysis is a vital part of understanding these algorithms. For a BFS:
+* Time Complexity is **O(n)** because each node is visited exactly once, the pop and push operations are performed in constant time, **O(1)**.
+* Space Complexity is **O(n)** in the worst case. The space complexity depends on the maximum width (*w*) of the tree, as the Queue needs to store all nodes of a single level simultaneously. In the worst-case scenario (a perfect binary tree), the width *w* is proportional to n (specifically *n*/2).  
+
+To conclude this topic, the following table compares the time complexity of various operations performed on the data structures covered in this guide.
+
+| **Operation** | **Unsorted array** | **Sorted array** | **Linked List** | **BT** | **BST** |
+| :---- | :---   | :---     | :---- | :---   | :---     |
+|*Search(x)*| **O(n)** | **O(logn)** | **O(n)** | **O(n)** | **O(logn)** |
+|*Insert(x)*| **O(1)** | **O(n)** | **O(1)** at head or **O(n)** at tail | **O(n)** | **O(logn)** |
+|*Remove(x)*| **O(n)** | **O(n)** | **O(n)** | **O(n)** | **O(logn)** |
