@@ -21,9 +21,9 @@ Each file has a consistent structure for easy review. The files' header includes
 *Click on to view the notes and problems per topic.*
 | **Topic** | **Basic Theory** | **Problems** |
 | :---- | :---   | :---     |
-|*Arrays*| [Ongoing](./theory/Arrays.md) | [Solutions](./problems/ArraysAndHashTables/)|
+|*Arrays*| [Check notes](./theory/Arrays.md) | [Solutions](./problems/ArraysAndHashTables/)|
+|*Sorting*| [Ongoing](./theory/Sorting.md) | No problems available |
 |*HashTables*| [Pending](./theory/HashTables.md) | [Solutions](./problems/ArraysAndHashTables/)|
-|*Sorting*| [Pending](./theory/Sorting.md) | No problems available |
 |*Linked List*| [Pending](./theory/LinkedList.md) | [Solutions](./problems/LinkedLists/)|
 |*Stack and Queue*| [Pending](./theory/StackQueue.md.md) | [Solutions](./problems/StackAndQueue/)|
 |*Trees*| [Check notes](./theory/Trees.md) | [Solutions](./problems/Trees/)|
