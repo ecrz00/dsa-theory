@@ -33,7 +33,6 @@ This process allows the data structure to appear flexible to the programmer, eve
 > In Python, when an array/list is defined, the Python Interpreter over-allocates memory by reserving extra space.
 > * Typically, this "extra room" allows for appending elements on the fly without needing to request more memory from the OS every single time.
 > * However, once the reserved memory block is completely full the interpreter perfomr the operation of dynamically allocating more space, so the developer does not need to worry about it.
-
 > In C, these features are not managed by an interpreter. The developer is responsible for deciding if an array needs extra room and must manually manage dynamic memory using functions such as malloc(), calloc(), realloc(), and free(). This offers greater control and performance at the cost of manual responsibility for memory leaks and fragmentation.
 
 ### Array Operations and Limitations
