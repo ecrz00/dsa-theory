@@ -66,3 +66,34 @@ Both implementations share the same time complexity, but they differ significant
 * **Space Complexity:**
     * Out-of-Place requires **O(n)** space because it allocates a new array of the same size as the original.
     * In-Place requires **O(1)** constant space because it reuses the original memory block and only needs a single temporaty variable for the swap.
+
+## Bubble sort
+
+Bubble sort is an iterative algorithm that "bubbles up" the largest elements to the end of the array by comparing and swapping adjacent neighbors.
+* Compare element at i-th with i+1-th position.
+* If element at i-th position is bigger, swap them.
+    * If at least one swap occurs during a full pass, the array is not yet sorted; the process must repeat.
+    * If the algorithm traverses the entire array without a single swap, it means the collection is already sorted, and the execution stops immediately.
+* Through each iteration, the bigger elements is pushed to the end, so the range of iteration is reduces.
+<p align="center">
+  <img src="../assets/arrays/bubbleSort.gif" width="200" alt="Descripción de la imagen">
+  <br>
+  <em>Figure 3: Bubble Sort.</em>
+</p>
+
+```python
+def bubbleSort(a: list[int]):
+    n = len(a)
+    for k in range(n):
+        flag = True
+        for i in range(n-k-1):
+            if a[i] > a[i+1]:
+                a[i], a[i+1] = a[i+1], a[i]
+                flag = False
+        if flag:
+            break
+```
+
+This implementation takes **O($n^2$)** times to run because the array is traversed in a double-nested loop. Even though the inner loop gets shorter with each pass. In Big O analysis, as *n* tends to infinity, subtractions are ignored. 
+
+In termns of space, it occupies constant time **O(1)** because the array is modified in-place.
