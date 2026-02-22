@@ -7,7 +7,7 @@ A collection of elements can be arranged in a specific order, (e.g., numbers in 
         * Selection Sort
         * Bubble Sort
         * Insertion Sort
-    * **Log-linear O($n \log(n)$)**: These utilize a Divide and Conquer strategy, often through recursion, to achieve much higher efficiency. They are the standard for production-level applications dealing with large amounts of data.
+    * **Log-linear O($nlog(n)$)**: These utilize a Divide and Conquer strategy, often through recursion, to achieve much higher efficiency. They are the standard for production-level applications dealing with large amounts of data.
         * Merge Sort
         * Quick Sort
 * **Space Complexity**, the amount of memory an algorithm uses relative to the input size.
@@ -113,7 +113,7 @@ def bubbleSort(a: list[int]):
 * **Time Complexity (O($n^2$)):** The array is traversed in a double-nested loop. Even though the inner loop gets shorter with each pass. In Big O analysis, as *n* tends to infinity, subtractions are ignored. 
 * **Space Complexity (O(1)):** Since the sorting happens in-place by swapping adjacent elements within the original memory block, it requires constant space regardless of the input size.
 
-### Insertion Sort
+## Insertion Sort
 
 This algorithm divides the array into two subsets: a sorted and an unsorted part. Initially, The first element always belongs to the sorted set, while the rest resides in the unsorted part. 
 * Pick an element *b* from the unsorted subset.
@@ -122,6 +122,11 @@ This algorithm divides the array into two subsets: a sorted and an unsorted part
     * If *a* is smaller or equal than *b*, the correct position has been found, and the loop stops.
 * Insert b into its final position. 
 
+<p align="center">
+  <img src="../assets/arrays/insertSort.gif" width="200" alt="Insert Sort">
+  <br>
+  <em>Figure 4: Insert Sort.</em>
+</p>
 
 ```python
 def insertionSort(a: list[int]):
@@ -133,5 +138,7 @@ def insertionSort(a: list[int]):
             a[idx] = a[idx-1]
             idx-=1
         a[idx] = value 
-
 ```
+### Complexity
+* **Time Complexity (O($n^2$)):** The array is traversed in a double-nested loop. While the inner loop explores a growing sorted portion of the array in each pass, the total number of comparisons still follows a quadratic pattern (1 + 2 + 3 + ... + *n*).
+* **Space Complexity (O(1)):** Since the sorting happens in-place by swapping elements within the original memory block, it requires constant space regardless of the input size.
