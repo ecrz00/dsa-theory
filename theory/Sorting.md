@@ -144,7 +144,7 @@ def insertionSort(a: list[int]):
 * **Space Complexity (O(1)):** Since the sorting happens in-place by swapping elements within the original memory block, it requires constant space regardless of the input size.
 
 ## Merge Sort
-Merge Sort is a stable algorithm based on a **Divide and Conquer** approach through recursion. The problem is divided into sub-problems until a base case is reached.
+Merge Sort is a **stable** algorithm based on a **Divide and Conquer** approach through recursion. The problem is divided into sub-problems until a base case is reached.
 1. An array is repeatedly divided into halves ultil all elements are individually contained within their own arrays. By default, an array with just one element is considered sorted.
 2. The individual arrays are merged together to form a larger array. Elements are compared during this process to ensure the resulting array is sorted.
 
