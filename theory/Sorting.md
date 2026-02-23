@@ -151,7 +151,7 @@ Merge Sort is a **stable** algorithm based on a **Divide and Conquer** approach 
 
 
 <p align="center">
-  <img src="../assets/arrays/mergeSort.gif" width="200" alt="Merge Sort">
+  <img src="../assets/arrays/mergeSort.gif" width="600" alt="Merge Sort">
   <br>
   <em>Figure 5: Merge Sort.</em>
 </p>
