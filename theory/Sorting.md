@@ -142,3 +142,49 @@ def insertionSort(a: list[int]):
 ### Complexity
 * **Time Complexity (O($n^2$)):** The array is traversed in a double-nested loop. While the inner loop explores a growing sorted portion of the array in each pass, the total number of comparisons still follows a quadratic pattern (1 + 2 + 3 + ... + *n*).
 * **Space Complexity (O(1)):** Since the sorting happens in-place by swapping elements within the original memory block, it requires constant space regardless of the input size.
+
+## Merge Sort
+Merge Sort is a stable algorithm based on a **Divide and Conquer** approach through recursion. The problem is divided into sub-problems until a base case is reached.
+1. An array is repeatedly divided into halves ultil all elements are individually contained within their own arrays. By default, an array with just one element is considered sorted.
+2. The individual arrays are merged together to form a larger array. Elements are compared during this process to ensure the resulting array is sorted.
+
+
+
+<p align="center">
+  <img src="../assets/arrays/mergeSort.gif" width="200" alt="Merge Sort">
+  <br>
+  <em>Figure 5: Merge Sort.</em>
+</p>
+
+```python
+def mergeSort(a: list[int]) -> list[int]:
+    n = len(a) # The length of the array is retrieved
+    # When the array contains only one element, the base case is met and the array is returned
+    if n == 1: return a  
+    mid = n//2 # The middle position of the array is computed
+    # The left sub-array is formed from index 0 to mid, and the right from mid to the end. 
+    # In the deepest call, elements are individually contained in resulting arrays.
+    left, right = mergeSort(a[:mid]), mergeSort(a[mid:]) 
+    sorted_arr = [0]*n
+    r = l = i = 0 # Indices for the right, left, and sorted arrays are initialized
+    # Main Loop: While indices l and r are within bounds, elements are compared and merged into sorted_arr
+    while l < len(left) and r < len(right):
+        if left[l] < right[r]: # If the element at the l-th position is smaller
+            sorted_arr[i] = left[l]
+            l+=1
+        else: # If the element at the r-th position is smaller
+            sorted_arr[i] = right[r]
+            r+=1
+        i+=1
+    # When an index goes out of bounds, remaining elements in either array are verified. 
+    # In such a scenario, these elements are appended to sorted_arr.
+    while l < len(left):
+        sorted_arr[i] = left[l]
+        l+=1
+        i+=1
+    while r < len(right):
+        sorted_arr[i] = right[r]
+        r += 1
+        i += 1
+    return sorted_arr
+```
