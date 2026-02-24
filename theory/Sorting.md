@@ -188,3 +188,10 @@ def mergeSort(a: list[int]) -> list[int]:
         i += 1
     return sorted_arr
 ```
+### Complexity
+* **Time Complexity (O($n\log_{2}(n)$)):** The algorithm itself is divided into two phases: 
+    *  A **recursive division**, where the algorithm is called twice at each step with the input size being halved $T(n)$, $2T(n/2)$, $4T(n/4)$, $8T(n/8)$, ..., $2^kT(n/2^k)$. This process is repeated across *k* levels, where $2^k = n$ is satisfied. The depth of the recursion tree is given by $k = \log_{2}(n)$
+    * After the recursive calls are returned, the resulting arrays are **merged**. At each level of the recursion tree, a total *n* elements are processed. This occurs with two halves, four quarters or $2^k$ subarrays of size $n/2^k$ are merged, always resulting in *n* operations per level.
+* **Space Complexity O(n):** The sorting is not performed in-place. Instead, extra arrays are created so that elements can be placed in their sorted order.
+
+## Quick Sort
