@@ -195,3 +195,34 @@ def mergeSort(a: list[int]) -> list[int]:
 * **Space Complexity O(n):** The sorting is not performed in-place. Instead, extra arrays are created so that elements can be placed in their sorted order.
 
 ## Quick Sort
+Quick Sort is an recursive algorithm based on **divide and conquer**. Unlike Merge Sort, an element of the array (typically the right-most) is selected as a **pivot** to build a partially sorted array, where smaller elements are positioned to its left and greater elements are placed to its right. This specific step is called **partitioning**. Within recursive calls, the following steps are performed:
+1. Pick a pivot 
+2. Partition the array 
+3. Recursivelly call the function itself modifying the bounds
+
+<p align="center">
+  <img src="../assets/arrays/quickSort.gif" width="300" alt="Quick Sort">
+  <br>
+  <em>Figure 6: Quick Sort.</em>
+</p>
+
+```python
+def partition(a: list[int], startIndex: int, endIndex: int):
+    pivot = a[endIndex] #last element as pivot
+    pIndex = startIndex
+    #array is traversed within its bounds. If elements are smaller that the pivot, they are placed to the left according to pIndex value.
+    for i in range(startIndex, endIndex): 
+        if a[i] <= pivot:
+            a[i], a[pIndex] = a[pIndex], a[i]
+            pIndex += 1
+    a[pIndex], a[endIndex] = a[endIndex], a[pIndex] #the pivot is placed in its respectively position.
+    return pIndex
+def quickSort(arr: list[int], startIndex: int, endIndex: int):
+    if startIndex < endIndex:
+        pi = partition(arr, startIndex, endIndex)
+        quickSort(arr, startIndex, pi-1)
+        quickSort(arr, pi+1, endIndex)
+
+a = [7,2,1,6,8,5,3,4]
+quickSort(a, 0, len(a)-1)
+```
