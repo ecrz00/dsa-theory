@@ -226,3 +226,31 @@ def quickSort(arr: list[int], startIndex: int, endIndex: int):
 a = [7,2,1,6,8,5,3,4]
 quickSort(a, 0, len(a)-1)
 ```
+### Complexity
+* **Time Complexity:** This algorithm has two different scenarios: an *average* where the time taken is **O($n\log_{2}(n)$)** and a *worst* case where the tame taken is **O($n^{2}$)** For the seek of understanding, the implementation will be divided into 2 phases: 
+    * A **partition** step where the elements are partially sorted according to the bounds and the pivot. This takes on average **O(n)** where *n* is the input size.
+    * Two **quick sort** functions calls with different bounds. Depending on the pivot chosen, is the time taken for the resursive calls:
+        * A **balanced** pivot is which allows the partition to divide the array in halves or al least with similar lengths. For example a 4 rearanges the array into ```[2, 3, 1, 4, 6, 7, 5, 8]```. The time taken for quick sort calls will be **O(n/2)** and the total time taken is given by: $$T(n) = 2T(n/2) + n \implies O(n\log_{2}(n))$$ 
+
+        * An **unbalanced** pivot only reduces the bounds by one, for example an 8 rearanges the arrray into  ```[7, 2, 1, 6, 5, 3, 4, 8]```, with the new bounds at 0 and 6. The time taken for quick soft calls will be **O(n-1)** and the total time taken is given by: $$T(n) = T(n-1) + n = T(n-2) + 2n = T(n-4) + 4n = \quad\ldots\quad = T(n-k) + kn$$ $$T(n) = T(1) + n^{2} \quad\forall\quad n-k = 1 \quad\implies\quad O(n^{2})$$
+
+* **Space Complexity O(1):** The sorting is performed in-place. 
+A solution to always ensure a good pivot is pick it randomly on each call.
+# Roundup
+
+The following table compares the time taken for each algorithm cover in this notes. 
+| **Algorithm** | **Time Complexity** |
+| :---- | :---   | 
+|*Selection Sort*| **O($n^2$)** |
+|*Bubble Sort*| **O($n^2$)** |
+|*Insertion Sort*| **O($n^2$)** |
+|*Merge Sort*| **O($n\log_{2}(n)$)** |
+|*Insertion Sort*| **AVG: O($n\log_{2}(n)$) Worst: O($n^2$)** |
+
+To conclude this topic, the following table compares the time complexity of various operations performed on the data structures covered so far. 
+
+| **Operation** | **Unsorted array** | **String** | **Sorted array** |
+| :---- | :---   | :---  |  :---  |
+|*Search(x)*| **O(n)** | **O(n)** | **O(\log_{2}(n))** |
+|*Insert(x)*| **O(1)** | **O(n)** | **O(n)** |
+|*Remove(x)*| **O(n)** | **O(n)** | **O(n)** |
