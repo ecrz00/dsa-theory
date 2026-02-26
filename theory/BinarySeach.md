@@ -37,6 +37,7 @@ BS is commonly utilized to:
 ## First/Last occurence
 Given a sorted array ```a = [1,2,3,4,4,4,5,6,7]``` where 4 is the target value, what index should the algorithm return? 
 * To find the first occurrence, the search must be continued on the left side, even after the target is initially located. This ensures that any potential matches at lower indices are identified.
+
 ```python
 def findFirst(arr: list, target:int) -> int:
     n = len(arr)
@@ -51,7 +52,9 @@ def findFirst(arr: list, target:int) -> int:
         else: lo = mid+1
     return res
 ```
+
 * To find the last occurrence, the search must be continued on the right side even after the target is initially located.
+
 ```python
 def findLast(arr: list, target: int) -> int:
     n=len(arr)
@@ -66,5 +69,19 @@ def findLast(arr: list, target: int) -> int:
         else: lo = mid+1
     return res 
 ```
+
 > [!NOTE]
 >  A different condition for the while loop is utilized in both implementations. The "inclusive" condition is preferred as it allows the search space to be fully exhausted.
+
+A particular solution to determine the frequency of an element is provided by using the indices of the first and last occurence. So, both functions are called and the returning index are stored. The frequency is then calculated by finding the difference between these two values.
+
+```python
+a = [1,2,3,4,4,4,5,6,7]
+first = findFirst(a, 4)
+last = findLast(a,4)
+#the freq is given by last - first + 1 but when the targer is not found, this formula returns a 1 when it should be a 0. So, that special case is handle with the if/else
+if first == -1: 
+    freq = 0
+else:
+    freq = last - first + 1
+```
