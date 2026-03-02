@@ -85,3 +85,29 @@ if first == -1:
 else:
     freq = last - first + 1
 ```
+
+## Circularly sorted array
+Given a sorted array ```a = [2, 3, 5, 8, 11, 12]``` in which every element appears once. A rotation can be perform by shiftting the elements as shown in Figure 1.
+
+<p align="center">
+  <img src="../assets/arrays/rotatedArray.png" width="400" alt="A rotated array">
+  <br>
+  <em>Figure 1: A circularly array being rotated once and twice</em>
+</p>
+
+The number of times a sorted array was rotated is given by the position of the smallest element. There are two methods to find it:
+
+* **Linear Search:** Scan the entire array until while keeping tack of the minimum element and its index
+
+```python
+def linearSearch(a: list) -> int:
+    minn = a[0]
+    minnI = 0
+    for i in range(len(a)):
+        if a[i] < minn:
+            minn = a[i]
+            minnI = i
+    return minnI 
+```
+
+* **Binary Seach:** A slightly different implementation of BS can be used. In particular, this algorithm has three cases:
