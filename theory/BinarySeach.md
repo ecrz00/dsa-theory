@@ -138,3 +138,40 @@ def timesRotated(arr: list) -> int:
             low = mid + 1
     return -1
 ```
+
+Given a rotated sorted array ```a = [11, 12, 2, 3, 5, 8]``` in which all elements are unique, and a *target*, there are two methods to find it:
+* **Linear search:** The entire array is traversed from index 0 to n until the target is either found of the end is reach.
+* **Binary Search:** The array is traversed using a variation of BS.
+    1. **arr[mid] == target** Target found, return mid
+    2. **arr[mid] <= arr[high]** The segment between mid and high is sorted.
+        1. **target > arr[mid] and target <= arr[high]:** The target is guaranteed to be in this range, so the search is continued in the right half.
+        2. The target is not within the sorted right portion, so the search is redirected to the left half.
+    3. **arr[low] <= arr[mid]:** The target exists within this sorted range, so the search is continued in the left half.
+        1. **target >= arr[low] and target < arr[mid]:** The search is continued in the left half.
+        2. The search is redirected to the right half.
+
+```python
+def searchInRotated(arr: list, target: int) -> int:
+    n = len(arr)
+    low, high = 0, n - 1
+    while low <= high:
+        mid = low + (high - low) // 2
+        # Case 1: The target is found at the middle index
+        if arr[mid] == target: 
+            return mid
+        # Case 2: The right portion of the array is found to be sorted
+        elif arr[mid] <= arr[high]:
+            # If the target is within the sorted range, the left half is discarded
+            if target > arr[mid] and target <= arr[high]: 
+                low = mid + 1
+            else:
+                high = mid - 1
+        # Case 3: The left portion of the array is found to be sorted
+        elif arr[low] <= arr[mid]:
+            # If the target is within the sorted range, the right half is discarded
+            if target >= arr[low] and target < arr[mid]:
+                high = mid - 1
+            else:
+                low = mid + 1
+    return -1
+```
