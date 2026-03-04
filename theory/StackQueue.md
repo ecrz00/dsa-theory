@@ -7,5 +7,7 @@ The following operations can be performed:
 * **Top (O(1)):** The value of the element located at the top is returned without its removal.
 * **IsEmpty (O(1)):** A boolean value is returned to indicate whether the stack is empty.
 
-![Stack Animation](https://github.com/user-attachments/assets/a17987c8-43ac-4410-97c0-a586ee53ca01)
+<video src="https://github.com/user-attachments/assets/a17987c8-43ac-4410-97c0-a586ee53ca01" controls width="600px">
+  Tu navegador no admite el elemento de video.
+</video>
 # Queue
