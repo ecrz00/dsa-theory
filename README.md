@@ -23,8 +23,8 @@ Each file has a consistent structure for easy review. The files' header includes
 | :---- | :---   | :---     |
 |*Arrays*| [Check notes](./theory/Arrays.md) | [Solutions](./problems/ArraysAndHashTables/)|
 |*Sorting*| [Check notes](./theory/Sorting.md) | No problems available |
-|*Binary Search*| [Check notes](./theory/BinarySeach.md) | [Solutions](./problems/BinarySearch/ |
-|*Stack and Queue*| [Ongoing](./theory/StackQueue.md.md) | [Solutions](./problems/StackAndQueue/)|
+|*Binary Search*| [Check notes](./theory/BinarySeach.md) | [Solutions](./problems/BinarySearch/) |
+|*Stack and Queue*| [Ongoing](./theory/StackQueue.md) | [Solutions](./problems/StackAndQueue/)|
 |*HashTables*| [Pending](./theory/HashTables.md) | [Solutions](./problems/ArraysAndHashTables/)|
 |*Linked List*| [Pending](./theory/LinkedList.md) | [Solutions](./problems/LinkedLists/)|
 |*Trees*| [Check notes](./theory/Trees.md) | [Solutions](./problems/Trees/)|
