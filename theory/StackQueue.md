@@ -36,6 +36,7 @@ Stack can be utilized for several applications:
 Stack is implemented using:
 * **Arrays:** 
     * Languages like **Python** allows developers to work easily because list objects already have operations like append(), pop() and arr[-1] which basically perform push(), pop() and top() operations 
+    
     <details>
     <summary>Python</summary>
 
@@ -51,6 +52,7 @@ Stack is implemented using:
     </details>    
 
     * In C, all operations need to be implemented.
+
     <details>
     <summary>C</summary>
 
