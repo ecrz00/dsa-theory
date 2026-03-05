@@ -25,7 +25,7 @@ Each file has a consistent structure for easy review. The files' header includes
 |*Sorting*| [Check notes](./theory/Sorting.md) | No problems available |
 |*Binary Search*| [Check notes](./theory/BinarySeach.md) | [Solutions](./problems/BinarySearch/) |
 |*Linked List*| [Pending](./theory/LinkedList.md) | [Solutions](./problems/LinkedLists/)|
-|*Stack*| [Ongoing](./theory/StackQueue.md) | [Solutions](./problems/StackAndQueue/)|
+|*Stack*| [Ongoing](./theory/Stack.md) | [Solutions](./problems/StackAndQueue/)|
 |*Queue*| [Ongoing](./theory/Queue.md) | [Solutions](./problems/StackAndQueue/)|
 |*HashTables*| [Pending](./theory/HashTables.md) | [Solutions](./problems/ArraysAndHashTables/)|
 |*Trees*| [Check notes](./theory/Trees.md) | [Solutions](./problems/Trees/)|
