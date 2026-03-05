@@ -36,17 +36,17 @@ Stack can be utilized for several applications:
 Stack is implemented using:
 * **Arrays:** 
     * Languages like **Python** allows developers to work easily because list objects already have operations like append(), pop() and arr[-1] which basically perform push(), pop() and top() operations 
-    
+
     <details>
     <summary>Python</summary>
 
         ```python
-            arr = [1, 2, 3, 4, 5, 6, 7]
-            arr.append(8) #push(8)
-            arr #[1, 2, 3, 4, 5, 6, 7, 8]
-            arr[-1] #top() -> 8
-            arr.pop() 
-            arr #[1, 2, 3, 4, 5, 6, 7, 8]
+        arr = [1, 2, 3, 4, 5, 6, 7]
+        arr.append(8) #push(8)
+        arr #[1, 2, 3, 4, 5, 6, 7, 8]
+        arr[-1] #top() -> 8
+        arr.pop() 
+        arr #[1, 2, 3, 4, 5, 6, 7, 8]
         ```
 
     </details>    
@@ -57,52 +57,52 @@ Stack is implemented using:
     <summary>C</summary>
 
         ```C
-            #include<stdio.h>
-            #define MAX_SIZE 101
-            int A[MAX_SIZE]; // integer array to store the stack 
-            int top = -1;  // variable to mark top of stack in array
+        #include<stdio.h>
+        #define MAX_SIZE 101
+        int A[MAX_SIZE]; // integer array to store the stack 
+        int top = -1;  // variable to mark top of stack in array
 
-            // Push operation to insert an element on top of stack. 
-            void Push(int x) {
-            if(top == MAX_SIZE -1) { // overflow case. 
-                    printf("Error: stack overflow\n");
-                    return;
-                }
-                A[++top] = x;
+        // Push operation to insert an element on top of stack. 
+        void Push(int x) {
+        if(top == MAX_SIZE -1) { // overflow case. 
+                printf("Error: stack overflow\n");
+                return;
             }
-            // Pop operation to remove an element from top of stack.
-            void Pop() {
-                if(top == -1) { // If stack is empty, pop should throw error. 
-                    printf("Error: No element to pop\n");
-                    return;
-                }
-                top--;
+            A[++top] = x;
+        }
+        // Pop operation to remove an element from top of stack.
+        void Pop() {
+            if(top == -1) { // If stack is empty, pop should throw error. 
+                printf("Error: No element to pop\n");
+                return;
             }
-            // Top operation to return element at top of stack. 
-            int Top() {
-                return A[top];
-            }
-            // This function will return 1 (true) if stack is empty, 0 (false) otherwise
-            int IsEmpty(){
-                if(top == -1) return 1;
-                return 0;
-            }
-            // This function is just to test the implementation of stack. 
-            // This will print all the elements in the stack at any stage. 
-            void Print() {
-                int i;
-                printf("Stack: ");
-                for(i = 0;i<=top;i++)
-                    printf("%d ",A[i]);
-                printf("\n");
-            }
-            int main() {	
-                Push(2);
-                Push(5);
-                Push(10);
-                Pop();
-                Push(12);
-            }
+            top--;
+        }
+        // Top operation to return element at top of stack. 
+        int Top() {
+            return A[top];
+        }
+        // This function will return 1 (true) if stack is empty, 0 (false) otherwise
+        int IsEmpty(){
+            if(top == -1) return 1;
+            return 0;
+        }
+        // This function is just to test the implementation of stack. 
+        // This will print all the elements in the stack at any stage. 
+        void Print() {
+            int i;
+            printf("Stack: ");
+            for(i = 0;i<=top;i++)
+                printf("%d ",A[i]);
+            printf("\n");
+        }
+        int main() {	
+            Push(2);
+            Push(5);
+            Push(10);
+            Pop();
+            Push(12);
+        }
         ```    
 
     </details>
