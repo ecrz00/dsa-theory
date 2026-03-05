@@ -37,26 +37,20 @@ Stack is implemented using:
 * **Arrays:** 
     * Languages like **Python** allows developers to work easily because list objects already have operations like append(), pop() and arr[-1] which basically perform push(), pop() and top() operations 
 
-    <details>
-    <summary>Python</summary>
-
-        ```python
-        arr = [1, 2, 3, 4, 5, 6, 7]
-        arr.append(8) #push(8)
-        arr #[1, 2, 3, 4, 5, 6, 7, 8]
-        arr[-1] #top() -> 8
-        arr.pop() 
-        arr #[1, 2, 3, 4, 5, 6, 7, 8]
-        ```
-
-    </details>    
+    ```python
+    arr = []
+    arr.append(2) #push(8)
+    arr.append(5)
+    arr.append(10)
+    arr #[2, 5, 10]
+    arr[-1] #top() -> 8
+    arr.pop() 
+    arr #[2, 5]
+    ```  
 
     * In C, all operations need to be implemented.
 
-    <details>
-    <summary>C</summary>
-
-        ```C
+    ```C
         #include<stdio.h>
         #define MAX_SIZE 101
         int A[MAX_SIZE]; // integer array to store the stack 
@@ -103,10 +97,4 @@ Stack is implemented using:
             Pop();
             Push(12);
         }
-        ```    
-
-    </details>
-
-
-
-# Queue
+    ```    
