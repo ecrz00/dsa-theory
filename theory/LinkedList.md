@@ -40,7 +40,7 @@ graph LR
 
     %% Nodo 3
     subgraph Node3 [0xF2230]
-        d3[1] --- p3["Next <br> NULL"]
+        d3[1] --- p3["Next <br> x00000"]
     end
 
     %% Conexiones
@@ -64,3 +64,43 @@ graph LR
     style H fill:#2d2d3a,stroke:#8B008B,color:#fff
     style NULL fill:#1a1a1a,stroke:#ccc,color:#fff
 ```
+
+Several operations can be performed on a Linked List, including insertion, deletion, and reversal. To execute these, at least one auxiliary pointer (often referred to as *tmp* or current) is utilized. This pointer is initially set to the same address as the *head*. By using this temporary pointer, the list can be traversed without the original *head* reference being affected.
+
+## Insertion
+
+Typically, the insertion of a new element is performed at the end of the list. The process is handled based on the current state of the list:
+1. **Initial State:** If the list is empty, the head pointer is set to ```None``` or ```NULL```.
+2. **First Insertion:** When the first node is created, the *head* pointer is updated to point to this *new_node*. The Next attribute of this node is then set to ```None```.
+3. **Subsequent Insertions:** If further elements are inserted, the list is traversed until the last node is reached. The Next pointer of the previously last node is updated to refer to the ```new_node```, while the Next attribute of the ```new_node``` is set to None.
+
+<video src="https://github.com/user-attachments/assets/69b7c556-6524-4fa7-992f-8a309df3a7e0" controls autoplay muted width="400px">
+  Tu navegador no admite el elemento de video.
+</video>
+
+```python
+def insertNodeAtEnd(head: Node, value: int):
+    new_node = createNode(value)
+    tmp = head
+    while tmp.next:
+        tmp = tmp.next
+    tmp.next = new_node
+```
+
+```c
+void insertNodeAtEnd(struct node *(*prt2head), int value){
+    struct node* new_node = createNode(value);
+    //*ptr2head is de-referencing head 
+    if(*prt2head == NULL)
+        *prt2head = new_node; //now head has the addr of new_node
+    else{
+        struct node* temp = *prt2head; //temp is storing head's addr 
+        while(temp->next_node != NULL)
+            temp = temp->next_node; //temp now points to the next node(given by the addr on next_node parameter)
+        (*temp).next_node = new_node; //(*temp).next_node = temp->next_node;
+    }
+}
+```
+
+>[!NOTE]
+> REMEMBER: If the head pointer is lost or overwritten, the entire list becomes inaccessible from memory, resulting in a memory leak.
