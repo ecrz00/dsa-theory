@@ -76,7 +76,7 @@ def insertNodeAtEnd(head: Node, value: int):
     tmp.next = new_node
 ```
 
-<video src="https://github.com/user-attachments/assets/69b7c556-6524-4fa7-992f-8a309df3a7e0" controls autoplay muted width="400px">
+<video src="https://github.com/user-attachments/assets/69b7c556-6524-4fa7-992f-8a309df3a7e0" controls autoplay muted width="300px">
   Tu navegador no admite el elemento de video.
 </video>
 
@@ -91,7 +91,7 @@ def insertNodeAtBeginning(head: Node, value: int) -> Node:
     new_node.next = head
     return new_node
 ```
-<video src="https://github.com/user-attachments/assets/7272e083-2ced-44a3-ba53-c6ff5b210bd1" controls autoplay muted width="400px">
+<video src="https://github.com/user-attachments/assets/7272e083-2ced-44a3-ba53-c6ff5b210bd1" controls autoplay muted width="300px">
   Tu navegador no admite el elemento de video.
 </video>
 
