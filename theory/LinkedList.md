@@ -11,12 +11,6 @@ class Node:
         self.next = next
 ```
 
-```c
-struct node{
-    int value;
-    struct node* next_node;
-};
-```
     
 Two fundamental pointers are utilized to manage a Linked List:
 
@@ -85,21 +79,6 @@ def insertNodeAtEnd(head: Node, value: int):
     while tmp.next:
         tmp = tmp.next
     tmp.next = new_node
-```
-
-```c
-void insertNodeAtEnd(struct node *(*prt2head), int value){
-    struct node* new_node = createNode(value);
-    //*ptr2head is de-referencing head 
-    if(*prt2head == NULL)
-        *prt2head = new_node; //now head has the addr of new_node
-    else{
-        struct node* temp = *prt2head; //temp is storing head's addr 
-        while(temp->next_node != NULL)
-            temp = temp->next_node; //temp now points to the next node(given by the addr on next_node parameter)
-        (*temp).next_node = new_node; //(*temp).next_node = temp->next_node;
-    }
-}
 ```
 
 >[!NOTE]
