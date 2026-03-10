@@ -95,6 +95,34 @@ def insertNodeAtBeginning(head: Node, value: int) -> Node:
   Tu navegador no admite el elemento de video.
 </video>
 
+Insertion can be performed at any specific position within the list, utilizing either one-based or zero-based indexing. The process is executed as follows:
+1. If the index is 1 for one-based indexing or the list is empty, the insertion is performed at the head.
+2. The list is traversed using a temporaty pointer *tmp* until the position immediately preceding the target index is reached.
+3. The next attibute of the new node is set to point to the node currently occupying the target position, and the next attribute of the preciding node is then updated to point to the new node.
+
+```python
+def insertNodeAtIndex(head: Node, value: int, idx: int): #one-based indexing
+    new_node = createNode(value)
+    # If the index is 1, the new node is established as the new head
+    if idx == 1 or head is None: 
+        new_node.next = head
+        return new_node
+    tmp = head
+    # The list is traversed until the (idx-1) position is reached
+    # idx - 2 is utilized to stop at the node just before the target index
+    for i in range(idx-2): 
+        if tmp.next is not None:
+            tmp=tmp.next
+        else:
+            break # If the index exceeds the list length, the node is inserted at the end
+    new_node.next = tmp.next # The new node is linked to the subsequent part of the list 
+    tmp.next = new_node # The preceding node is updated to point to the new node
+    return head
+```
+
+<video src="https://github.com/user-attachments/assets/f76e7377-e7a5-4ac5-aacd-4a2a944a00ac" controls autoplay muted width="300px">
+  Tu navegador no admite el elemento de video.
+</video>
 
 >[!NOTE]
 > REMEMBER: If the head pointer is lost or overwritten, the entire list becomes inaccessible from memory, resulting in a memory leak.
