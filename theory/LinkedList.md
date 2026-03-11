@@ -60,7 +60,7 @@ style NULL fill:#1a1a1a,stroke:#ccc,color:#fff
 
 Several operations can be performed on a Linked List, including insertion, deletion, and reversal. To execute these, at least one auxiliary pointer (often referred to as *tmp* or current) is utilized. This pointer is initially set to the same address as the *head*. By using this temporary pointer, the list can be traversed without the original *head* reference being affected.
 
-## Insertion
+## Insertion and deletion
 
 Typically, the insertion of a new element is performed at the end of the list. To insert an element at the end, the list must be completely traverse, which represents **O(n)** in time complexity. The process is handled based on the current state of the list:
 1. **Initial State:** If the list is empty, the head pointer is set to ```None``` or ```NULL```.
@@ -97,7 +97,7 @@ def insertNodeAtBeginning(head: Node, value: int) -> Node:
 
 Insertion can be performed at any specific position within the list, utilizing either one-based or zero-based indexing. The process is executed as follows:
 1. If the index is 1 for one-based indexing or the list is empty, the insertion is performed at the head.
-2. The list is traversed using a temporaty pointer *tmp* until the position immediately preceding the target index is reached.
+2. The list is traversed using a temporary pointer *tmp* until the position immediately preceding the target index is reached.
 3. The next attibute of the new node is set to point to the node currently occupying the target position, and the next attribute of the preciding node is then updated to point to the new node.
 
 ```python
@@ -121,6 +121,34 @@ def insertNodeAtIndex(head: Node, value: int, idx: int): #one-based indexing
 ```
 
 <video src="https://github.com/user-attachments/assets/f76e7377-e7a5-4ac5-aacd-4a2a944a00ac" controls autoplay muted width="300px">
+  Tu navegador no admite el elemento de video.
+</video>
+
+Deletion is performed following a similar pattern to insertion, where pointers must be carefully redirected to maintain the integrity of the list.
+1. If the head is pointing to None, indicating an empty list, None is returned.
+2. If the index is 1 for one-based indexing, the first element of the list must be removed. This is achieved by returning the address of the second element. 
+3. To remove a node at a certain position, two pointers are utilized to manage the preceding and subsequent elements:
+    * The list is traversed using a temporary pointer *tmp1* until the position immediately preceding the target index is reached.
+    * Another temporary pointer *tmp2* is defined to point to the node that is intended for deletion.
+
+```python
+def deleteNode(head: Node, idx: int):
+    if head is None:
+        return None
+    if idx == 1:
+        return head.next
+    tmp1 = head
+    for i in range(idx-2):
+        if tmp1.next is not None:
+            tmp1=tmp1.next
+        else:
+            return head #target position out of bound, returns the original list 
+    tmp2 = tmp1.next
+    tmp1.next = tmp2.next
+    return head
+```
+
+<video src="https://github.com/user-attachments/assets/f0ca7c38-6f1b-4010-9f51-2f9533eb739a" controls autoplay muted width="300px">
   Tu navegador no admite el elemento de video.
 </video>
 
