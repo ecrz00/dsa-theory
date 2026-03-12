@@ -152,5 +152,48 @@ def deleteNode(head: Node, idx: int):
   Tu navegador no admite el elemento de video.
 </video>
 
+## Reverse a list
+
+To reverse a linked list is necessary to maintain three reference simultaneously to ensure that the links are redirected properly. The following pointers are utilized during each iteration:
+* The node that has already been processed, refer as *prev*
+* The node that is currently being processed, refer as *curr*
+* The node that will be processed in the following iteration, refer as *nxt*
+
+And the process is executed through the following steps in a loop:
+1. The address of the next node is stores in *nxt*.
+2. The next attribute of *curr* node is reversed to point to prev.
+3. The prev pointer now points to the *curr* node.
+4. The *curr* pointer now points to the *nxt* node.
+
+Once the end of the list is reached, the head is updated to point to the last node processed *prev*.
+
+```python
+def reverseRecursive(head: Node) -> Node:
+    curr = head
+    prev = None
+    while curr is not None:
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
+    return prev
+```
+
+<video src="https://github.com/user-attachments/assets/765ec385-7302-412d-a2d5-dfa9b2480f03" controls autoplay muted width="300px">
+  Tu navegador no admite el elemento de video.
+</video>
+
+This operation can also be performed using recursion.
+
+```python
+def reverseRecursive(node: Node):
+    if not node or not node.next:
+        return node
+    new_node = reverseRecursive(node.next)
+    node.next.next = node
+    node.next = None
+    return new_node
+```
+
 >[!NOTE]
 > REMEMBER: If the head pointer is lost or overwritten, the entire list becomes inaccessible from memory, resulting in a memory leak.
